@@ -42,12 +42,44 @@
         <version>7.34.2</version>
         <scope>test</scope>
     </dependency>
-
     
+<!-- Force a specific, stable version of Commons IO at the root level -->
     <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.14.0</version>
+    </dependency>
+    
+   <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-simple</artifactId>
+        <version>2.0.9</version>
+        <scope>test</scope>
+    </dependency>
+    <!-- 2. Add Log4j Core to clear the StatusLogger warning classpath prompt -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>2.20.0</version>
+    </dependency>
+
+    <!-- 3. Add Log4j API to match log4j-core -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>2.20.0</version>
+    </dependency>
+    
+     <dependency>
         <groupId>org.apache.poi</groupId>
         <artifactId>poi-ooxml</artifactId>
         <version>5.2.3</version>
+        <exclusions>
+            <exclusion>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-io</artifactId>
+            </exclusion>
+        </exclusions>
     </dependency>
     
     <dependency>
